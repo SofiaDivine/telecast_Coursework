@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редагування каналу</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Телепрограма</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="channelsDropdown" role="button" data-toggle="dropdown">Усі канали</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Новини</a>
+                        <a class="dropdown-item" href="#">Спорт</a>
+                        <a class="dropdown-item" href="#">Фільми і Серіали</a>
+                        <a class="dropdown-item" href="#">Розважальні</a>
+                        <a class="dropdown-item" href="#">Пізнавальні</a>
+                        <a class="dropdown-item" href="#">Дитячі</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="scheduleDropdown" role="button" data-toggle="dropdown">Розклад передач</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">1+1</a>
+                        <a class="dropdown-item" href="#">Дорама</a>
+                        <a class="dropdown-item" href="#">Світ спорту</a>
+                        <a class="dropdown-item" href="#">Бейбі ТВ</a>
+                        <a class="dropdown-item" href="#">АнглійськаДом</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown">Кабінет адміна</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Створити новий канал</a>
+                        <div class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="editChannelDropdown">Редагувати канал</a>
+                            <div class="dropdown-menu" id="editChannelMenu">
+                                <a class="dropdown-item" href="#">1+1</a>
+                                <a class="dropdown-item" href="#">Дорама</a>
+                                <a class="dropdown-item" href="#">Світ спорту</a>
+                                <a class="dropdown-item" href="#">Мультики</a>
+                                <a class="dropdown-item" href="#">EnglishDom</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="editScheduleDropdown">Редагувати розклад</a>
+                            <div class="dropdown-menu" id="editScheduleMenu">
+                                <a class="dropdown-item" href="#">1+1</a>
+                                <a class="dropdown-item" href="#">Дорама</a>
+                                <a class="dropdown-item" href="#">Світ спорту</a>
+                                <a class="dropdown-item" href="#">Мультики</a>
+                                <a class="dropdown-item" href="#">EnglishDom</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="col-md-12 d-flex justify-content-center mt-3" style=" display: block;
+    margin: 0 auto;
+      width: 1100px;
+      height: 600px;">
+        <img src="/images/1+1.jpeg" alt="фото каналу" class="channel-bg">
+        </div>
+        <div class="form-group mr-5 ml-5 mt-4">
+            <label for="schedule" class="h2">Редагування розкладу каналу:</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5 mr-5 ml-5">Зберегти зміни</button>
+    </form>
+    <div class="col-md-12 d-flex justify-content-center mt-3" style=" display: block;
+    margin: 0 auto;
+      width: 1100px;
+      height: 600px;">
+        <img src="/images/dorama.jpg" alt="фото каналу" class="channel-bg">
+        </div>
+        <div class="form-group mr-5 ml-5 mt-4">
+            <label for="schedule" class="h2">Редагування розкладу каналу:</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5 mr-5 ml-5">Зберегти зміни</button>
+    </form>
+    <div class="col-md-12 d-flex justify-content-center mt-3" style=" display: block;
+    margin: 0 auto;
+      width: 1100px;
+      height: 600px;">
+        <img src="/images/sport.png" alt="фото каналу" class="channel-bg">
+        </div>
+        <div class="form-group mr-5 ml-5 mt-4">
+            <label for="schedule" class="h2">Редагування розкладу каналу:</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5 mr-5 ml-5">Зберегти зміни</button>
+    </form>
+    <div class="col-md-12 d-flex justify-content-center mt-3" style=" display: block;
+    margin: 0 auto;
+      width: 1100px;
+      height: 600px;">
+        <img src="/images/cartoon.png" alt="фото каналу" class="channel-bg">
+        </div>
+        <div class="form-group mr-5 ml-5 mt-4">
+            <label for="schedule" class="h2">Редагування розкладу каналу:</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5 mr-5 ml-5">Зберегти зміни</button>
+    </form>
+    <div class="col-md-12 d-flex justify-content-center mt-3" style=" display: block;
+    margin: 0 auto;
+      width: 1100px;
+      height: 600px;">
+        <img src="/images/english.jpg" alt="фото каналу" class="channel-bg">
+        </div>
+        <div class="form-group mr-5 ml-5 mt-4">
+            <label for="schedule" class="h2">Редагування розкладу каналу:</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Час">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control mb-2" placeholder="Опис програми">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5 mr-5 ml-5">Зберегти зміни</button>
+    </form>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+    $('#editChannelDropdown').on("click", function(e){
+        $('#editChannelMenu').toggle();
+        $('#editScheduleMenu').hide(); 
+        e.stopPropagation();
+        e.preventDefault();
+    });
+    
+    $('#editScheduleDropdown').on("click", function(e){
+        $('#editScheduleMenu').toggle();
+        $('#editChannelMenu').hide(); 
+        e.stopPropagation();
+        e.preventDefault();
+    });
+});
+    </script>
+</body>
+</html>

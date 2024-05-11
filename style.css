@@ -1,0 +1,14 @@
+.card-img-top {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+.card {
+    width: 300px;
+}
+.channel-bg {
+  display: block;
+  margin: 0 auto;
+    width: 1100px;
+    height: 600px;
+}
