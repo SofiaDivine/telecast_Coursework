@@ -1,247 +1,226 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Розклад передач</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
-</head>   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Розклад передач</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="index.js" defer></script>
+</head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Телепрограма</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="channelsDropdown" role="button" data-toggle="dropdown">Усі канали</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item filter-category" href="#" data-category="all">Усі</a>
-                        <a class="dropdown-item filter-category" href="#" data-category="Новини">Новини</a>
-                        <a class="dropdown-item filter-category" href="#" data-category="Спорт">Спорт</a>
-                        <a class="dropdown-item filter-category" href="#" data-category="Фільми і Серіали">Фільми і Серіали</a>
-                        <a class="dropdown-item filter-category" href="#" data-category="Розважальні">Розважальні</a>
-                        <a class="dropdown-item filter-category" href="#" data-category="Пізнавальні">Пізнавальні</a>
-                        <a class="dropdown-item filter-category" href="#" data-category="Дитячі">Дитячі</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="scheduleDropdown" role="button" data-toggle="dropdown">Розклад передач</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="schedule.html">1+1</a>
-                        <a class="dropdown-item" href="schedule.html">Дорама</a>
-                        <a class="dropdown-item" href="schedule.html">Світ спорту</a>
-                        <a class="dropdown-item" href="schedule.html">Мультики</a>
-                                <a class="dropdown-item" href="schedule.html">EnglishDom</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown">Кабінет адміна</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="create.html">Створити новий канал</a>
-                        <div class="dropdown-submenu">
-                            <a class="dropdown-item dropdown-toggle" href="#" id="editChannelDropdown">Редагувати канал</a>
-                            <div class="dropdown-menu" id="editChannelMenu">
-                                <a class="dropdown-item" href="channel-edit.html" data-channel="1+1">1+1</a>
-                                <a class="dropdown-item" href="channel-edit.html" data-channel="Dorama">Дорама</a>
-                                <a class="dropdown-item" href="channel-edit.html" data-channel="SvitSportu">Світ спорту</a>
-                                <a class="dropdown-item" href="channel-edit.html" data-channel="Multiki">Мультики</a>
-                                <a class="dropdown-item" href="channel-edit.html" data-channel="EnglishDom">EnglishDom</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-submenu">
-                            <a class="dropdown-item dropdown-toggle" href="#" id="editScheduleDropdown">Редагувати розклад</a>
-                            <div class="dropdown-menu" id="editScheduleMenu">
-                                <a class="dropdown-item" href="schedule-edit.html">1+1</a>
-                                <a class="dropdown-item" href="schedule-edit.html">Дорама</a>
-                                <a class="dropdown-item" href="schedule-edit.html">Світ спорту</a>
-                                <a class="dropdown-item" href="schedule-edit.html">Мультики</a>
-                                <a class="dropdown-item" href="schedule-edit.html">EnglishDom</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="col-md-12 d-flex justify-content-center mt-3">
-<img src="/images/1+1.jpeg" alt="фото каналу" class="channel-bg">
-</div>
-<div class="mt-3">
-<h2 style="text-align: center">Розклад каналу:</h2>
-</div>
-<div class="container mb-5 mt-4">
-    <div class="row">
-        <div class="col-md-6">
-            <ul class="list-group">
-                <li class="list-group-item">10:00 - 11:50</li>
-                <li class="list-group-item">12:00 - 13:30</li>
-                <li class="list-group-item">13:50 - 16:30</li>
-                <li class="list-group-item">16:40 - 19:00</li>
-                <li class="list-group-item">19:20 - 23:00</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <ul class="list-group">
-                <li class="list-group-item">Сніданок з 1+1</li>
-                <li class="list-group-item">ТСН - Головне</li>
-                <li class="list-group-item">Благодійний аукціон</li>
-                <li class="list-group-item">ТСН - Головнек</li>
-                <li class="list-group-item">Телемарафон</li>
-            </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Телепрограма</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="channelsDropdown" role="button" data-toggle="dropdown">Усі
+            канали</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item filter-category" href="#" data-category="all">Усі</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Новини">Новини</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Спорт">Спорт</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Фільми і Серіали">Фільми і Серіали</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Розважальні">Розважальні</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Пізнавальні">Пізнавальні</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Дитячі">Дитячі</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="scheduleDropdown" role="button"
+            data-toggle="dropdown">Розклад передач</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="schedule.html">1+1</a>
+            <a class="dropdown-item" href="schedule.html">Дорама</a>
+            <a class="dropdown-item" href="schedule.html">Світ спорту</a>
+            <a class="dropdown-item" href="schedule.html">Мультики</a>
+            <a class="dropdown-item" href="schedule.html">EnglishDom</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown">Кабінет
+            адміна</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="create.html">Створити новий канал</a>
+            <div class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" id="editChannelDropdown">Редагувати канал</a>
+              <div class="dropdown-menu" id="editChannelMenu">
+                <a class="dropdown-item" href="channel-edit.html" data-channel="1+1">1+1</a>
+                <a class="dropdown-item" href="channel-edit.html" data-channel="Dorama">Дорама</a>
+                <a class="dropdown-item" href="channel-edit.html" data-channel="SvitSportu">Світ спорту</a>
+                <a class="dropdown-item" href="channel-edit.html" data-channel="Multiki">Мультики</a>
+                <a class="dropdown-item" href="channel-edit.html" data-channel="EnglishDom">EnglishDom</a>
+              </div>
+            </div>
+            <div class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" id="editScheduleDropdown">Редагувати розклад</a>
+              <div class="dropdown-menu" id="editScheduleMenu">
+                <a class="dropdown-item" href="schedule-edit.html">1+1</a>
+                <a class="dropdown-item" href="schedule-edit.html">Дорама</a>
+                <a class="dropdown-item" href="schedule-edit.html">Світ спорту</a>
+                <a class="dropdown-item" href="schedule-edit.html">Мультики</a>
+                <a class="dropdown-item" href="schedule-edit.html">EnglishDom</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-</div>
-<div class="col-md-12 d-flex justify-content-center mt-3">
-    <img src="/images/dorama.jpg" alt="фото каналу" class="channel-bg">
+  </nav>
+  <section>
+    <div class="col-md-12 d-flex justify-content-center mt-3">
+      <img src="/images/1+1.jpeg" alt="фото каналу" class="channel-bg">
     </div>
     <div class="mt-3">
-    <h2 style="text-align: center">Розклад каналу:</h2>
+      <h2 style="text-align: center">Розклад каналу:</h2>
     </div>
     <div class="container mb-5 mt-4">
-        <div class="row">
-            <div class="col-md-6">
-                <ul class="list-group">
-                    <li class="list-group-item">10:00 - 11:50</li>
-                    <li class="list-group-item">12:00 - 13:30</li>
-                    <li class="list-group-item">13:50 - 16:30</li>
-                    <li class="list-group-item">16:40 - 19:00</li>
-                    <li class="list-group-item">19:20 - 23:00</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <ul class="list-group">
-                    <li class="list-group-item">1 серія - Гоблін</li>
-                    <li class="list-group-item">2 серія - Гоблін</li>
-                    <li class="list-group-item">3-4 серії - Легенда синього моря</li>
-                    <li class="list-group-item">5-6 серії - Легенда синього моря</li>
-                    <li class="list-group-item">3-5 серії - Гоблін</li>
-                </ul>
-            </div>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">10:00 - 11:50</li>
+            <li class="list-group-item">12:00 - 13:30</li>
+            <li class="list-group-item">13:50 - 16:30</li>
+            <li class="list-group-item">16:40 - 19:00</li>
+            <li class="list-group-item">19:20 - 23:00</li>
+          </ul>
         </div>
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">Сніданок з 1+1</li>
+            <li class="list-group-item">ТСН - Головне</li>
+            <li class="list-group-item">Благодійний аукціон</li>
+            <li class="list-group-item">ТСН - Головнек</li>
+            <li class="list-group-item">Телемарафон</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </section>
+  <section hidden="">
     <div class="col-md-12 d-flex justify-content-center mt-3">
-        <img src="/images/sport.png" alt="фото каналу" class="channel-bg">
+      <img src="/images/dorama.jpg" alt="фото каналу" class="channel-bg">
+    </div>
+    <div class="mt-3">
+      <h2 style="text-align: center">Розклад каналу:</h2>
+    </div>
+    <div class="container mb-5 mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">10:00 - 11:50</li>
+            <li class="list-group-item">12:00 - 13:30</li>
+            <li class="list-group-item">13:50 - 16:30</li>
+            <li class="list-group-item">16:40 - 19:00</li>
+            <li class="list-group-item">19:20 - 23:00</li>
+          </ul>
         </div>
-        <div class="mt-3">
-        <h2 style="text-align: center">Розклад каналу:</h2>
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">1 серія - Гоблін</li>
+            <li class="list-group-item">2 серія - Гоблін</li>
+            <li class="list-group-item">3-4 серії - Легенда синього моря</li>
+            <li class="list-group-item">5-6 серії - Легенда синього моря</li>
+            <li class="list-group-item">3-5 серії - Гоблін</li>
+          </ul>
         </div>
-        <div class="container mb-5 mt-4">
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item">10:00 - 12:00</li>
-                        <li class="list-group-item">12:30 - 14:30</li>
-                        <li class="list-group-item">15:00 - 18:00</li>
-                        <li class="list-group-item">18:20 - 20:20</li>
-                        <li class="list-group-item">20:30 - 22:00</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item">Великий тенніс</li>
-                        <li class="list-group-item">Гольф у Манчестері</li>
-                        <li class="list-group-item">Змагання зі стрільби із лука</li>
-                        <li class="list-group-item">Маленький теніс - Кіпр</li>
-                        <li class="list-group-item">Тренування перед змаганням: Катання на конях</li>
-                    </ul>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+  <section hidden="">
+    <div class="col-md-12 d-flex justify-content-center mt-3">
+      <img src="/images/sport.png" alt="фото каналу" class="channel-bg">
+    </div>
+    <div class="mt-3">
+      <h2 style="text-align: center">Розклад каналу:</h2>
+    </div>
+    <div class="container mb-5 mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">10:00 - 12:00</li>
+            <li class="list-group-item">12:30 - 14:30</li>
+            <li class="list-group-item">15:00 - 18:00</li>
+            <li class="list-group-item">18:20 - 20:20</li>
+            <li class="list-group-item">20:30 - 22:00</li>
+          </ul>
         </div>
-        <div class="col-md-12 d-flex justify-content-center mt-3">
-            <img src="/images/cartoon.png" alt="фото каналу" class="channel-bg">
-            </div>
-            <div class="mt-3">
-            <h2 style="text-align: center">Розклад каналу:</h2>
-            </div>
-            <div class="container mb-5 mt-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-group">
-                            <li class="list-group-item">11:00 - 12:50</li>
-                            <li class="list-group-item">13:30 - 15:20</li>
-                            <li class="list-group-item">15:50 - 17:30</li>
-                            <li class="list-group-item">18:00 - 19:50</li>
-                            <li class="list-group-item">20:30 - 23:00</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="list-group">
-                            <li class="list-group-item">Аватар - Легенда про Аанга</li>
-                            <li class="list-group-item">Унесені вітром - Хаяо Міядзакі</li>
-                            <li class="list-group-item">КОКО</li>
-                            <li class="list-group-item">Льодовиковий період</li>
-                            <li class="list-group-item">Думками навиворіт</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 d-flex justify-content-center mt-3">
-                <img src="/images/english.jpg" alt="фото каналу" class="channel-bg">
-                </div>
-                <div class="mt-3">
-                <h2 style="text-align: center">Розклад каналу:</h2>
-                </div>
-                <div class="container mb-5 mt-4">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-group">
-                                <li class="list-group-item">10:00 - 11:50</li>
-                                <li class="list-group-item">12:00 - 13:30</li>
-                                <li class="list-group-item">13:50 - 16:30</li>
-                                <li class="list-group-item">16:40 - 19:00</li>
-                                <li class="list-group-item">19:20 - 23:00</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-group">
-                                <li class="list-group-item">Англійська для дітей</li>
-                                <li class="list-group-item">Англійська мова для рівня А2</li>
-                                <li class="list-group-item">Англіська мова для рівня В2</li>
-                                <li class="list-group-item">Бізнес англійська</li>
-                                <li class="list-group-item">Англійська для ІТ</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <script src="index.js"></script>
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-                <script>
-                    $(document).ready(function(){
-                $('#editChannelDropdown').on("click", function(e){
-                    $('#editChannelMenu').toggle();
-                    $('#editScheduleMenu').hide(); 
-                    e.stopPropagation();
-                    e.preventDefault();
-                });
-                
-                $('#editScheduleDropdown').on("click", function(e){
-                    $('#editScheduleMenu').toggle();
-                    $('#editChannelMenu').hide(); 
-                    e.stopPropagation();
-                    e.preventDefault();
-                });
-            
-                $('.filter-category').on('click', function(e) {
-                    e.preventDefault();
-                    var category = $(this).attr('data-category');
-            
-                    if (category === 'all') {
-                        $('.channel-card').show();
-                    } else {
-                        $('.channel-card').each(function() {
-                            var channelCategory = $(this).attr('data-category');
-                            if (channelCategory === category) {
-                                $(this).show();
-                            } else {
-                                $(this).hide();
-                            }
-                        });
-                    }
-                });
-            });
-                </script>
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">Великий тенніс</li>
+            <li class="list-group-item">Гольф у Манчестері</li>
+            <li class="list-group-item">Змагання зі стрільби із лука</li>
+            <li class="list-group-item">Маленький теніс - Кіпр</li>
+            <li class="list-group-item">Тренування перед змаганням: Катання на конях</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section hidden="">
+    <div class="col-md-12 d-flex justify-content-center mt-3">
+      <img src="/images/cartoon.png" alt="фото каналу" class="channel-bg">
+    </div>
+    <div class="mt-3">
+      <h2 style="text-align: center">Розклад каналу:</h2>
+    </div>
+    <div class="container mb-5 mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">11:00 - 12:50</li>
+            <li class="list-group-item">13:30 - 15:20</li>
+            <li class="list-group-item">15:50 - 17:30</li>
+            <li class="list-group-item">18:00 - 19:50</li>
+            <li class="list-group-item">20:30 - 23:00</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">Аватар - Легенда про Аанга</li>
+            <li class="list-group-item">Унесені вітром - Хаяо Міядзакі</li>
+            <li class="list-group-item">КОКО</li>
+            <li class="list-group-item">Льодовиковий період</li>
+            <li class="list-group-item">Думками навиворіт</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section hidden="">
+    <div class="col-md-12 d-flex justify-content-center mt-3">
+      <img src="/images/english.jpg" alt="фото каналу" class="channel-bg">
+    </div>
+    <div class="mt-3">
+      <h2 style="text-align: center">Розклад каналу:</h2>
+    </div>
+    <div class="container mb-5 mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">10:00 - 11:50</li>
+            <li class="list-group-item">12:00 - 13:30</li>
+            <li class="list-group-item">13:50 - 16:30</li>
+            <li class="list-group-item">16:40 - 19:00</li>
+            <li class="list-group-item">19:20 - 23:00</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">Англійська для дітей</li>
+            <li class="list-group-item">Англійська мова для рівня А2</li>
+            <li class="list-group-item">Англіська мова для рівня В2</li>
+            <li class="list-group-item">Бізнес англійська</li>
+            <li class="list-group-item">Англійська для ІТ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
