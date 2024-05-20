@@ -1,5 +1,5 @@
 
-const channels = [
+let channels = [
   {
     id: 1,
     name: "1+1",
@@ -20,7 +20,7 @@ const channels = [
   },
   {
     id: 4,
-    name: "Мультки",
+    name: "Мультики",
     category: "Дитячі",
     img: "/images/baby.jpg"
   },
