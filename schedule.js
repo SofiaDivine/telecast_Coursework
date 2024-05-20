@@ -36,74 +36,85 @@ let schedules = [
   }
 ];
 
-const app = document.getElementById('app');
+saveSchedule();
+loadSchedule();
+showSchedule(schedules);
 
-schedules.forEach(schedule => {
-  const section = document.createElement('section');
-  if (schedule.hidden) {
-    section.setAttribute('hidden', '');
+function showSchedule(schedules) {
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+
+  schedules.forEach(schedule => {
+    const section = document.createElement('section');
+    if (schedule.hidden) {
+      section.setAttribute('hidden', '');
+    }
+    section.classList.add('container', 'mb-4');
+  
+    const row = document.createElement('div');
+    row.classList.add('row', 'align-items-center');
+  
+    const imgCol = document.createElement('div');
+    imgCol.classList.add('col-md-12', 'text-center', 'mb-3');
+  
+    const img = document.createElement('img');
+    img.src = schedule.imgSrc;
+    img.alt = schedule.imgAlt;
+    img.classList.add('img-fluid');
+    imgCol.appendChild(img);
+  
+    const timesCol = document.createElement('div');
+    timesCol.classList.add('col-md-6');
+  
+    const timesTitle = document.createElement('h5');
+    timesTitle.textContent = 'Час';
+    timesCol.appendChild(timesTitle);
+  
+    const times = document.createElement('ul');
+    times.classList.add('list-group', 'list-group-flush');
+    schedule.times.forEach(time => {
+      const li = document.createElement('li');
+      li.classList.add('list-group-item');
+      li.textContent = time;
+      times.appendChild(li);
+    });
+    timesCol.appendChild(times);
+  
+    const showsCol = document.createElement('div');
+    showsCol.classList.add('col-md-6');
+  
+    const showsTitle = document.createElement('h5');
+    showsTitle.textContent = 'Розклад передач';
+    showsCol.appendChild(showsTitle);
+  
+    const shows = document.createElement('ul');
+    shows.classList.add('list-group', 'list-group-flush');
+    schedule.shows.forEach(show => {
+      const li = document.createElement('li');
+      li.classList.add('list-group-item');
+      li.textContent = show;
+      shows.appendChild(li);
+    });
+    showsCol.appendChild(shows);
+  
+    row.appendChild(imgCol);
+    row.appendChild(timesCol);
+    row.appendChild(showsCol);
+  
+    section.appendChild(row);
+    app.appendChild(section);
+  });
+}
+function saveSchedule() {
+  localStorage.setItem('schedules', JSON.stringify(schedules)); 
+}
+
+function loadSchedule() {
+  const data = localStorage.getItem('schedules');
+  if (data) {
+    schedules = JSON.parse(data);
   }
-  section.classList.add('container', 'mb-4');
-
-  const row = document.createElement('div');
-  row.classList.add('row', 'align-items-center');
-
-  const imgCol = document.createElement('div');
-  imgCol.classList.add('col-md-12', 'text-center', 'mb-3');
-
-  const img = document.createElement('img');
-  img.src = schedule.imgSrc;
-  img.alt = schedule.imgAlt;
-  img.classList.add('img-fluid');
-  imgCol.appendChild(img);
-
-  const timesCol = document.createElement('div');
-  timesCol.classList.add('col-md-6');
-
-  const timesTitle = document.createElement('h5');
-  timesTitle.textContent = 'Час';
-  timesCol.appendChild(timesTitle);
-
-  const times = document.createElement('ul');
-  times.classList.add('list-group', 'list-group-flush');
-  schedule.times.forEach(time => {
-    const li = document.createElement('li');
-    li.classList.add('list-group-item');
-    li.textContent = time;
-    times.appendChild(li);
-  });
-  timesCol.appendChild(times);
-
-  const showsCol = document.createElement('div');
-  showsCol.classList.add('col-md-6');
-
-  const showsTitle = document.createElement('h5');
-  showsTitle.textContent = 'Розклад передач';
-  showsCol.appendChild(showsTitle);
-
-  const shows = document.createElement('ul');
-  shows.classList.add('list-group', 'list-group-flush');
-  schedule.shows.forEach(show => {
-    const li = document.createElement('li');
-    li.classList.add('list-group-item');
-    li.textContent = show;
-    shows.appendChild(li);
-  });
-  showsCol.appendChild(shows);
-
-  row.appendChild(imgCol);
-  row.appendChild(timesCol);
-  row.appendChild(showsCol);
-
-  section.appendChild(row);
-  app.appendChild(section);
-});
-
-const colDiv = document.createElement('div');
-colDiv.classList.add('col-md-12', 'd-flex', 'justify-content-center', 'mt-3');
-app.appendChild(colDiv);
-
-
+}
 
 $('#editChannelDropdown').on("click", function (e) {
   $('#editChannelMenu').toggle();
