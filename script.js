@@ -43,7 +43,7 @@ function saveChannels() {
 function loadChannels() {
   const data = localStorage.getItem('channels');
   if (data) {
-    channels.push(...JSON.parse(data));
+    channels.splice(0, channels.length, ...JSON.parse(data));
   } 
 }
 
@@ -56,11 +56,13 @@ function showChannels(channels) {
     channelCard.setAttribute('data-category', channel.category);
     channelCard.innerHTML = `
       <div class="card">
-        <img src="${channel.img}" class="card-img-top" alt="фото каналу">
-        <div class="card-body">
-          <h5 class="card-title">${channel.name}</h5>
-          <p class="card-text channel-category">Категорія: ${channel.category}</p>
-        </div>
+        <a href="schedule.html?id=${channel.id}">
+          <img src="${channel.img}" class="card-img-top" alt="фото каналу">
+          <div class="card-body">
+            <h5 class="card-title">${channel.name}</h5>
+            <p class="card-text channel-category">Категорія: ${channel.category}</p>
+          </div>
+        </a>
       </div>
     `;  
     channelList.appendChild(channelCard);

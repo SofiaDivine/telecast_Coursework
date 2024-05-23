@@ -46,6 +46,8 @@ function showForms(forms, channelId) {
   });
 }
 
+
+
 function createScheduleEditSection(imageSrc, channelName, channelId) {
   const section = document.createElement('section');
   section.dataset.channelId = channelId;
