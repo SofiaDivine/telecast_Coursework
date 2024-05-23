@@ -31,14 +31,6 @@ let channels = [
   }
 ];
 
-function saveChannelData(channelId, formData) {
-  localStorage.setItem(`channel_${channelId}`, JSON.stringify(formData));
-}
-
-function loadChannelData(channelId) {
-  const savedData = localStorage.getItem(`channel_${channelId}`);
-  return savedData ? JSON.parse(savedData) : {};
-}
 
 function showChannelData(channelId) {
   const formData = loadChannelData(channelId);
@@ -46,6 +38,17 @@ function showChannelData(channelId) {
   const categorySelect = document.getElementById(`category_${channelId}`);
   channelNameInput.value = formData.channelName || '';
   categorySelect.value = formData.category || 'Новини'; // Default to 'Новини' if not set
+
+}
+
+
+function saveChannelData(channelId, formData) {
+  localStorage.setItem(`channel_${channelId}`, JSON.stringify(formData));
+}
+
+function loadChannelData(channelId) {
+  const savedData = localStorage.getItem(`channel_${channelId}`);
+  return savedData ? JSON.parse(savedData) : {};
 }
 
 function handleFormSubmit(channelId) {
