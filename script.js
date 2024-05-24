@@ -1,36 +1,4 @@
-
-let channels = [
-  {
-    id: 1,
-    name: "1+1",
-    category: "Новини",
-    img: "/images/news.jpg"
-  },
-  {
-    id: 2,
-    name: "Дорама",
-    category: "Фільми і Серіали",
-    img: "/images/goblin.jpg"
-  },
-  {
-    id: 3,
-    name: "Світ спорту",
-    category: "Спорт",
-    img: "/images/tennis.jpg"
-  },
-  {
-    id: 4,
-    name: "Мультики",
-    category: "Дитячі",
-    img: "/images/baby.jpg"
-  },
-  {
-    id: 5,
-    name: "EnglishDom",
-    category: "Пізнавальні",
-    img: "/images/eng.jpg"
-  }
-]
+import  channels  from './channels.js';
 
 saveChannels();
 loadChannels();
@@ -57,7 +25,7 @@ function showChannels(channels) {
     channelCard.innerHTML = `
       <div class="card">
         <a href="schedule.html?id=${channel.id}">
-          <img src="${channel.img}" class="card-img-top" alt="фото каналу">
+          <img src="${channel.mainImg}" class="card-img-top" alt="фото каналу">
           <div class="card-body">
             <h5 class="card-title">${channel.name}</h5>
             <p class="card-text channel-category">Категорія: ${channel.category}</p>

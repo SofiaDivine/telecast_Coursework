@@ -1,44 +1,15 @@
-let channels = [
-  {
-      id: 1,
-      name: "1+1",
-      category: "Новини",
-      img: "/images/1+1.jpeg"
-  },
-  {
-      id: 2,
-      name: "Дорама",
-      category: "Фільми і Серіали",
-      img: "/images/dorama.jpg"
-  },
-  {
-      id: 3,
-      name: "Світ спорту",
-      category: "Спорт",
-      img: "/images/sport.png"
-  },
-  {
-      id: 4,
-      name: "Мультики",
-      category: "Дитячі",
-      img: "/images/cartoon.png"
-  },
-  {
-      id: 5,
-      name: "EnglishDom",
-      category: "Пізнавальні",
-      img: "/images/english.jpg"
-  }
-];
+import { channels } from './channels.js';
 
+
+const id = new URLSearchParams(window.location.search).get('id');
+console.log(id);
 
 function showChannelData(channelId) {
   const formData = loadChannelData(channelId);
-  const channelNameInput = document.getElementById(`channelName_${channelId}`);
+  const channelNameInput = document.getElementById(`name${channelId}`);
   const categorySelect = document.getElementById(`category_${channelId}`);
-  channelNameInput.value = formData.channelName || '';
+  channelNameInput.value = formData.name || '';
   categorySelect.value = formData.category || 'Новини'; // Default to 'Новини' if not set
-
 }
 
 
@@ -47,7 +18,7 @@ function saveChannelData(channelId, formData) {
 }
 
 function loadChannelData(channelId) {
-  const savedData = localStorage.getItem(`channel_${channelId}`);
+  const savedData = localStorage.getItem(`channels`);
   return savedData ? JSON.parse(savedData) : {};
 }
 

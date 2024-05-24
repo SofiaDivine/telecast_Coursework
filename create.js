@@ -1,3 +1,5 @@
+import { channels } from './channels.js';
+
 const form = document.forms[0];
 const channels = [];
 const schedules = [];
