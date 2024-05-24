@@ -38,7 +38,7 @@ let channels = [ {
   id: 5,
   name: "EnglishDom",
   category: "Пізнавальні",
-  mainImg: "/images/english.jpg", 
+  mainImg: "/images/eng.jpg", 
   bgImg: "/images/english.jpg",
   times: ["10:00 - 11:50", "12:00 - 13:30", "13:50 - 16:30", "16:40 - 19:00", "19:20 - 23:00"],
   shows: ["Англійська для дітей", "Англійська мова для рівня А2", "Англіська мова для рівня В2", "Бізнес англійська", "Англійська для ІТ"],
@@ -46,35 +46,3 @@ let channels = [ {
 ]
 
 export default channels;
-
-$('#editChannelDropdown').on("click", function (e) {
-  $('#editChannelMenu').toggle();
-  $('#editScheduleMenu').hide();
-  e.stopPropagation();
-  e.preventDefault();
-});
-
-$('#editScheduleDropdown').on("click", function (e) {
-  $('#editScheduleMenu').toggle();
-  $('#editChannelMenu').hide();
-  e.stopPropagation();
-  e.preventDefault();
-});
-
-$('.filter-category').on('click', function (e) {
-  e.preventDefault();
-  var category = $(this).attr('data-category');
-
-  if (category === 'all') {
-    $('.channel-card').show();
-  } else {
-    $('.channel-card').each(function () {
-      var channelCategory = $(this).attr('data-category');
-      if (channelCategory === category) {
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-    });
-  }
-});
