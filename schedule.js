@@ -52,7 +52,7 @@ function saveSchedules() {
 function loadSchedules() {
   const data = localStorage.getItem('channels');
   if (data) {
-    channels = JSON.parse(data);
+    channels.splice(0, channels.length, ...JSON.parse(data));
   }
 }
 
