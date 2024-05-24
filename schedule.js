@@ -1,7 +1,6 @@
 import channels from './channels.js';
 
-saveSchedules();
-loadSchedules();
+loadChannels();
 
 const id = new URLSearchParams(window.location.search).get('id');
 const schedule = channels.find(channel => channel.id == id);
@@ -45,11 +44,7 @@ function showSchedule(schedule) {
   app.replaceChildren(section);
 }
 
-function saveSchedules() {
-  localStorage.setItem('channels', JSON.stringify(channels));
-}
-
-function loadSchedules() {
+function loadChannels() {
   const data = localStorage.getItem('channels');
   if (data) {
     channels.splice(0, channels.length, ...JSON.parse(data));
@@ -57,34 +52,17 @@ function loadSchedules() {
 }
 
 
-$('#editChannelDropdown').on("click", function (e) {
-  $('#editChannelMenu').toggle();
-  $('#editScheduleMenu').hide();
-  e.stopPropagation();
-  e.preventDefault();
-});
-
-$('#editScheduleDropdown').on("click", function (e) {
-  $('#editScheduleMenu').toggle();
-  $('#editChannelMenu').hide();
-  e.stopPropagation();
-  e.preventDefault();
-});
-
-$('.filter-category').on('click', function (e) {
-  e.preventDefault();
-  var category = $(this).attr('data-category');
-
-  if (category === 'all') {
-    $('.channel-card').show();
-  } else {
-    $('.channel-card').each(function () {
-      var channelCategory = $(this).attr('data-category');
-      if (channelCategory === category) {
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-    });
-  }
-});
+  $('#editChannelDropdown').on("click", function (e) {
+    $('#editChannelMenu').toggle();
+    $('#editScheduleMenu').hide();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  
+  $('#editScheduleDropdown').on("click", function (e) {
+    $('#editScheduleMenu').toggle();
+    $('#editChannelMenu').hide();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  

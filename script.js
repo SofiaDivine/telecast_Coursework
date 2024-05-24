@@ -1,6 +1,5 @@
-import  channels  from './channels.js';
+import channels from './channels.js';
 
-saveChannels();
 loadChannels();
 showChannels(channels);
 
@@ -11,12 +10,16 @@ function saveChannels() {
 function loadChannels() {
   const data = localStorage.getItem('channels');
   if (data) {
-    channels.splice(0, channels.length, ...JSON.parse(data));
-  } 
+    const loadedChannels = JSON.parse(data);
+    channels.splice(0, channels.length, ...loadedChannels);
+  } else {
+    saveChannels(); // Зберігаємо початкові дані, якщо localStorage порожній
+  }
 }
 
 function showChannels(channels) {
   const channelList = document.querySelector('.channel-list>.row');
+  channelList.innerHTML = ''; // Очищення існуючого контенту
 
   channels.forEach(channel => {
     const channelCard = document.createElement('div');
@@ -36,6 +39,7 @@ function showChannels(channels) {
     channelList.appendChild(channelCard);
   });
 }
+
 
 
 $('#editChannelDropdown').on("click", function (e) {
