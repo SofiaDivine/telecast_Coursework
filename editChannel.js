@@ -30,11 +30,10 @@ function createChannelEditSection(channel) {
 
   formGroupDiv.innerHTML = `
     <h2>Редагування каналу: ${channel.name}</h2>
-    <form novalidate>
+    <form>
       <div class="form-group">
         <label for="channelName">Назва каналу</label>
-        <input type="text" id="channelName" class="form-control" value="${channel.name}" pattern="[a-zA-Zа-яА-Я0-9\s]{3,}" required>
-        <div class="invalid-feedback">Назва каналу має містити тільки букви, не менше 3х символів та цифри.</div>
+        <input type="text" id="channelName" class="form-control" value="${channel.name}">
       </div>
       <div class="form-group">
         <label for="channelCategory">Категорія</label>
@@ -46,20 +45,17 @@ function createChannelEditSection(channel) {
     </form>
   `;
 
-  const form = formGroupDiv.querySelector('form');
-  form.addEventListener('submit', (event) => {
+
+
+  formGroupDiv.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault();
-    if (!form.checkValidity()) {
-      form.classList.add('was-validated');
-      return;
-    }
     const updatedChannel = {
       ...channel,
       name: formGroupDiv.querySelector('#channelName').value,
       category: formGroupDiv.querySelector('#channelCategory').value,
     };
     saveChannelData(channel.id, updatedChannel);
-    form.reset();
+    alert('Зміни успішно збережено!'); 
   });
 
   section.appendChild(imageDiv);
@@ -82,6 +78,9 @@ if (channel) {
   errorMessage.textContent = 'Канал не знайдено.';
   document.body.appendChild(errorMessage);
 }
+
+
+
 
 $('#editChannelDropdown').on("click", function (e) {
   $('#editChannelMenu').toggle();

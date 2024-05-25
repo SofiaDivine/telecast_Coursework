@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Телепрограма</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="module" src="script.js" defer></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Телепрограма</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="channelsDropdown" role="button" data-toggle="dropdown">Усі канали</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item filter-category" href="#" data-category="all">Усі</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Новини">Новини</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Спорт">Спорт</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Фільми і Серіали">Фільми і Серіали</a>
+            <a class="dropdown-item filter-category" href="#" data-category="Розважальні">Розважальні</а>
+            <a class="dropdown-item filter-category" href="#" data-category="Пізнавальні">Пізнавальні</а>
+            <a class="dropdown-item filter-category" href="#" data-category="Дитячі">Дитячі</а>
+          </div>
+        </li>
+        <li class="nav-item dropdown" id="adminMenu" style="display: none;">
+          <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown">Кабінет адміна</а>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="create.html">Створити новий канал</а>
+            <div class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" id="editChannelDropdown">Редагувати канал</а>
+              <div class="dropdown-menu" id="editChannelMenu">
+                <a class="dropdown-item" href="channel-edit.html?id=1" data-channel="1+1">1+1</а>
+                <a class="dropdown-item" href="channel-edit.html?id=2" data-channel="Dorama">Дорама</а>
+                <a class="dropdown-item" href="channel-edit.html?id=3" data-channel="SvitSportu">Світ спорту</а>
+                <a class="dropdown-item" href="channel-edit.html?id=4" data-channel="Multiki">Мультики</а>
+                <a class="dropdown-item" href="channel-edit.html?id=5" data-channel="EnglishDom">EnglishDom</а>
+              </div> 
+            </div>
+            <div class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" id="editScheduleDropdown">Редагувати розклад</а>
+              <div class="dropdown-menu" id="editScheduleMenu">
+                <a class="dropdown-item" href="schedule-edit.html?id=1">1+1</а>
+                <a class="dropdown-item" href="schedule-edit.html?id=2">Дорама</а>
+                <a class="dropdown-item" href="schedule-edit.html?id=3">Світ спорту</а>
+                <a class="dropdown-item" href="schedule-edit.html?id=4">Мультики</а>
+                <a class="dropdown-item" href="schedule-edit.html?id=5">EnglishDom</а>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-4 channel-list">
+    <div class="row">
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var role = localStorage.getItem('role');
+        if (role === 'admin') {
+            document.getElementById('adminMenu').style.display = 'block';
+        } else if (role === 'user') {
+            document.getElementById('adminMenu').style.display = 'none';
+        }
+    });
+  </script>
+</body>
+</html>

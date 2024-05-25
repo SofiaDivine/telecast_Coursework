@@ -34,22 +34,25 @@ function handleSubmit(e) {
     return;
   }
 
-  const descriptionRegex = /^[a-zA-Z\s0-9]{3,}$/;
+  const descriptionRegex = /^[a-zA-Zа-яА-Я0-9\s]{2,}$/;
   if (!descriptionRegex.test(show) || !descriptionRegex.test(channelName)) {
     alert("Поля 'Опис програми' та 'Назва каналу' повинні містити тільки літери, цифри та пробіли, і мають бути не менше, ніж 2 символи.");
     return;
   }
 
-  const id = Date.now();
+  const channelId = generateUniqueId(channelName); // Генеруємо унікальний ідентифікатор для каналу
+  const scheduleId = generateUniqueId(channelId + time); // Генеруємо унікальний ідентифікатор для розкладу
+
   const channel = {
-    id,
+    id: channelId,
     name: channelName,
     image: formData.get('channelImage'),
     category: formData.get('category'),
   };
 
   const schedule = {
-    id,
+    id: scheduleId,
+    channelId: channelId, // Додамо також ідентифікатор каналу, щоб мати можливість зв'язати розклад і канал
     imgAlt: "фото каналу",
     times: time,
     shows: show,
@@ -62,28 +65,28 @@ function handleSubmit(e) {
   form.reset();
 }
 
+function generateUniqueId(prefix) {
+  return prefix + '_' + Date.now(); // Повертаємо унікальний ідентифікатор на основі префікса та часу
+}
+
 function saveChannels() {
   localStorage.setItem('channels', JSON.stringify(channels));
 }
-
 function loadChannels() {
   const data = localStorage.getItem('channels');
   if (data) {
     channels.splice(0, channels.length, ...JSON.parse(data));
   } 
 }
-
 function saveSchedules() {
   localStorage.setItem('schedules', JSON.stringify(schedules)); 
 }
-
 function loadSchedules() {
   const data = localStorage.getItem('schedules');
   if (data) {
     schedules.splice(0, schedules.length, ...JSON.parse(data)); 
   }
 }
-
 
 
 $('#editChannelDropdown').on("click", function (e) {

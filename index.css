@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+}
+
+.logo img {
+  width: 400px;
+  height: auto;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.host {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: white;
+  background-color: #01553B;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.host:hover {
+  color: white;
+  background-color: #871209;
+}
+
+.admin {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: white;
+  background-color: #871209;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.admin:hover {
+  color: white;
+  background-color: #01553B;
+}
