@@ -24,9 +24,11 @@ function createScheduleEditSection(channel) {
         <div class="row">
           <div class="col-md-6">
             <input type="text" class="form-control mb-2" placeholder="Час" id="time_${id}_${index}" value="${time}">
+            <div class="invalid-feedback" id="timeError_${id}_${index}"></div>
           </div>
           <div class="col-md-6">
             <input type="text" class="form-control mb-2" placeholder="Опис програми" id="description_${id}_${index}" value="${shows[index]}">
+            <div class="invalid-feedback" id="descriptionError_${id}_${index}"></div>
           </div>
         </div>
       `).join('')}
@@ -34,50 +36,71 @@ function createScheduleEditSection(channel) {
     </div>
   `;
 
-  section.querySelector('button[type="submit"]').addEventListener('click', () => {
+  section.querySelector('button[type="submit"]').addEventListener('click', (event) => {
+    event.preventDefault();
     const formData = [];
+    let isValid = true;
+
     for (let i = 0; i < times.length; i++) {
       const timeInput = document.getElementById(`time_${id}_${i}`);
       const descriptionInput = document.getElementById(`description_${id}_${i}`);
+      const timeError = document.getElementById(`timeError_${id}_${i}`);
+      const descriptionError = document.getElementById(`descriptionError_${id}_${i}`);
+
+      const timeRegex = /^[\d\s:-]+$/;
+      if (!timeRegex.test(timeInput.value)) {
+        timeError.textContent = "Допускаються тільки цифри, пробіли, двокрапки і тире.";
+        timeInput.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        timeError.textContent = "";
+        timeInput.classList.remove("is-invalid");
+      }
+
+      const descriptionRegex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ0-9\s-]{3,}$/;
+      if (!descriptionRegex.test(descriptionInput.value)) {
+        descriptionError.textContent = "Опис повинен містити не менше 3 букв, допускаються тільки літери, цифри, пробіли та тире.";
+        descriptionInput.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        descriptionError.textContent = "";
+        descriptionInput.classList.remove("is-invalid");
+      }
+
       formData.push({
         time: timeInput.value,
         description: descriptionInput.value
       });
     }
-    saveForms(id, formData);
+
+    if (isValid) {
+      saveForms(id, formData);
+    }
   });
 
   return section;
 }
 
-// Отримуємо id каналу з URL
 const urlParams = new URLSearchParams(window.location.search);
 const id = parseInt(urlParams.get('id'), 10);
 
-// Знаходимо відповідний канал за id
 const channel = channels.find(channel => channel.id === id);
 
 if (channel) {
-  // Завантажуємо збережені форми для каналу, якщо такі є
+
   const savedForms = loadForms(channel.id);
 
-  // Використовуємо збережені форми, якщо вони є, або початкові дані з channels
   const times = savedForms.length ? savedForms.map(form => form.time) : channel.times;
   const shows = savedForms.length ? savedForms.map(form => form.description) : channel.shows;
 
-  // Створюємо секцію редагування розкладу для каналу
   const scheduleSection = createScheduleEditSection({ ...channel, times, shows });
 
-  // Вставляємо секцію в документ
   document.body.appendChild(scheduleSection);
 } else {
-  // Якщо канал не знайдено, показуємо повідомлення
   const errorMessage = document.createElement('p');
   errorMessage.textContent = 'Канал не знайдено.';
   document.body.appendChild(errorMessage);
 }
-
-
 
 
 $('#editChannelDropdown').on("click", function (e) {

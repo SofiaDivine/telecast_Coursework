@@ -4,10 +4,8 @@ const form = document.forms[0];
 const channels = [];
 const schedules = [];
 
-// Заповнення селектора категорій
 const categorySelect = form.querySelector('#category');
 
-// Очищення селектора перед додаванням категорій
 categorySelect.innerHTML = '';
 
 categories.forEach(category => {
@@ -26,10 +24,26 @@ function handleSubmit(e) {
   e.preventDefault();
   const formData = new FormData(form);
 
+  const time = formData.get('time');
+  const show = formData.get('show');
+  const channelName = formData.get('channelName');
+
+  const timeRegex = /^[0-9\s:-]+$/;
+  if (!timeRegex.test(time)) {
+    alert("Поле 'Час' може містити тільки цифри, пробіл, двокрапку та тире.");
+    return;
+  }
+
+  const descriptionRegex = /^[a-zA-Z\s0-9]{3,}$/;
+  if (!descriptionRegex.test(show) || !descriptionRegex.test(channelName)) {
+    alert("Поля 'Опис програми' та 'Назва каналу' повинні містити тільки літери, цифри та пробіли, і мають бути не менше, ніж 2 символи.");
+    return;
+  }
+
   const id = Date.now();
   const channel = {
     id,
-    name: formData.get('channelName'),
+    name: channelName,
     image: formData.get('channelImage'),
     category: formData.get('category'),
   };
@@ -37,10 +51,9 @@ function handleSubmit(e) {
   const schedule = {
     id,
     imgAlt: "фото каналу",
-    times: formData.get('time'),
-    shows: formData.get('show'),
+    times: time,
+    shows: show,
   };
-
 
   channels.push(channel);
   schedules.push(schedule);
@@ -70,7 +83,6 @@ function loadSchedules() {
     schedules.splice(0, schedules.length, ...JSON.parse(data)); 
   }
 }
-
 
 
 
