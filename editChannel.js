@@ -1,8 +1,12 @@
 import channels from "./channels.js";
 import categories from "./categories.js";
 
+const event = new Event('dataUpdated');
+document.dispatchEvent(event);
+
 function saveChannelData(channelId, channelData) {
   localStorage.setItem(`channel_${channelId}`, JSON.stringify(channelData));
+  console.log('Data saved');
 }
 
 function loadChannelData(channelId) {
@@ -45,8 +49,6 @@ function createChannelEditSection(channel) {
     </form>
   `;
 
-
-
   formGroupDiv.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault();
     const updatedChannel = {
@@ -78,9 +80,6 @@ if (channel) {
   errorMessage.textContent = 'Канал не знайдено.';
   document.body.appendChild(errorMessage);
 }
-
-
-
 
 $('#editChannelDropdown').on("click", function (e) {
   $('#editChannelMenu').toggle();

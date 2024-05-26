@@ -1,25 +1,32 @@
 import channels from './channels.js';
 
-loadChannels();
+// script.js та schedule.js
+document.addEventListener('DOMContentLoaded', function () {
+  loadChannels(); // Завантажуємо дані при завантаженні сторінки
+
+  // Перевіряємо наявність змінених даних при кожному завантаженні сторінки
+  const updatedChannels = JSON.parse(localStorage.getItem('channels'));
+  if (updatedChannels) {
+    channels.splice(0, channels.length, ...updatedChannels);
+    showChannels(channels);
+  }
+});
+
+saveChannels();
 showChannels(channels);
 
 function saveChannels() {
   localStorage.setItem('channels', JSON.stringify(channels));
 }
 
-function loadChannels() {
-  const data = localStorage.getItem('channels');
-  if (data) {
-    const loadedChannels = JSON.parse(data);
-    channels.splice(0, channels.length, ...loadedChannels);
-  } else {
-    saveChannels(); // Зберігаємо початкові дані, якщо localStorage порожній
-  }
+function loadChannels(channelId) {
+  const savedData = localStorage.getItem(`channel_${channelId}`);
+  return savedData ? JSON.parse(savedData) : null;
 }
 
 function showChannels(channels) {
   const channelList = document.querySelector('.channel-list>.row');
-  channelList.innerHTML = ''; // Очищення існуючого контенту
+  channelList.innerHTML = ''; 
 
   channels.forEach(channel => {
     const channelCard = document.createElement('div');
@@ -39,7 +46,6 @@ function showChannels(channels) {
     channelList.appendChild(channelCard);
   });
 }
-
 
 
 $('#editChannelDropdown').on("click", function (e) {

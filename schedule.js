@@ -1,6 +1,18 @@
 import channels from './channels.js';
 
-loadChannels();
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Data updated event received');
+  // Оновлюємо дані на головній сторінці
+  loadChannels();
+
+  // Оновлюємо дані на сторінці розкладу (якщо відкрита)
+  const id = new URLSearchParams(window.location.search).get('id');
+  const schedule = channels.find(channel => channel.id == id);
+  if (schedule) {
+    showSchedule(schedule);
+  }
+});
 
 const id = new URLSearchParams(window.location.search).get('id');
 const schedule = channels.find(channel => channel.id == id);
@@ -50,7 +62,6 @@ function loadChannels() {
     channels.splice(0, channels.length, ...JSON.parse(data));
   }
 }
-
 
   $('#editChannelDropdown').on("click", function (e) {
     $('#editChannelMenu').toggle();

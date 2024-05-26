@@ -1,7 +1,12 @@
 import channels from "./channels.js";
 
+const event = new Event('dataUpdated');
+document.dispatchEvent(event);
+
+
 function saveForms(channelId, formData) {
   localStorage.setItem(`schedule_${channelId}`, JSON.stringify(formData));
+  console.log('Data saved');
 }
 
 function loadForms(channelId) {
@@ -101,7 +106,6 @@ if (channel) {
   errorMessage.textContent = 'Канал не знайдено.';
   document.body.appendChild(errorMessage);
 }
-
 
 $('#editChannelDropdown').on("click", function (e) {
   $('#editChannelMenu').toggle();
