@@ -3,10 +3,8 @@ import channels from './channels.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Data updated event received');
-  // Оновлюємо дані на головній сторінці
   loadChannels();
 
-  // Оновлюємо дані на сторінці розкладу (якщо відкрита)
   const id = new URLSearchParams(window.location.search).get('id');
   const schedule = channels.find(channel => channel.id == id);
   if (schedule) {

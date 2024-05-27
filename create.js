@@ -15,7 +15,6 @@ categories.forEach(category => {
   categorySelect.appendChild(option);
 });
 
-showCreationForms();
 loadChannels();
 loadSchedules();
 
@@ -87,87 +86,6 @@ function loadSchedules() {
   if (data) {
     schedules.splice(0, schedules.length, ...JSON.parse(data)); 
   }
-}
-
-function showCreationForms(channels, schedules) {
-  const app = document.getElementById('app');
-  if (!app) {
-    console.error('App element not found');
-    return;
-  }
-
-  const section = document.createElement('section');
-  section.innerHTML = `
-  <div class="container">
-    <h2 class="mt-4">Створення нового каналу</h2>
-    <form>
-      <div class="form-group">
-        <label for="channelImage">Фото каналу:</label>
-        <input type="file" class="form-control-file" id="channelImage">
-      </div>
-      <div class="form-group">
-        <label for="channelName">Назва каналу:</label>
-        <input type="text" class="form-control" id="channelName" placeholder="Введіть назву каналу">
-      </div>
-      <div class="form-group">
-        <label for="category">Категорія:</label>
-        <select class="form-control" id="category">
-          <option>Новини</option>
-          <option>Спорт</option>
-          <option>Фільми і Серіали</option>
-          <option>Розважальні</option>
-          <option>Пізнавальні</option>
-          <option>Дитячі</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="schedule">Розклад програми:</label>
-        <div class="row">
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Час" name="time">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Опис програми" name="show">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Час" name="time">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Опис програми" name="show">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Час" name="time">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Опис програми" name="show">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Час" name="time">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Опис програми" name="show">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Час" name="time">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-2" placeholder="Опис програми" name="show">
-          </div>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary mb-5">Створити канал</button>
-    </form>
-  </div>
-`;
-app.replaceChildren(section);
 }
 
 

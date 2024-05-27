@@ -1,10 +1,8 @@
 import channels from './channels.js';
 
-// script.js та schedule.js
 document.addEventListener('DOMContentLoaded', function () {
-  loadChannels(); // Завантажуємо дані при завантаженні сторінки
+  loadChannels();
 
-  // Перевіряємо наявність змінених даних при кожному завантаженні сторінки
   const updatedChannels = JSON.parse(localStorage.getItem('channels'));
   if (updatedChannels) {
     channels.splice(0, channels.length, ...updatedChannels);
